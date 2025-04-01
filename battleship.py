@@ -58,7 +58,8 @@ def enemy_ship(grid):
 def user_coord(enemy_pos):
     hit = None
     while True:
-        user_coordinate = (int(input()), int(input()))
+        user_coordinate = (int(input('\nEnter x-coordinate: ')), int(input('\nEnter y-coordinate: ')))
+        print()
         x, y = user_coordinate
         if (x > 10 or x < 1) or (y > 10 or y < 1):
             print('Coordinate out of range.')
@@ -68,13 +69,13 @@ def user_coord(enemy_pos):
             break
     if user_coordinate in enemy_pos:
         hit = True
-        print('A hit, cap\'n!')
+        print('A hit, cap\'n!\n')
         update_grid(user_coordinate, hit)
         enemy_position.remove(user_coordinate)
         return user_coordinate
     else:
         hit = False
-        print('A miss! Work harder ya scallywags!')
+        print('A miss! Work harder ya scallywags!\n')
         update_grid(user_coordinate, hit)
         return user_coordinate
 
@@ -87,5 +88,5 @@ def main():
         grid.remove(user_coordinate)
         
         if len(enemy_position) == 0:
-            print('Congrats, Captain! We got them all!')
+            print('\nCongrats, Captain! We got them all!')
 main()
